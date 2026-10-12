@@ -188,6 +188,7 @@ section { padding-block: 88px; }
 .contact-card h2 { color: var(--bg); }
 .contact-card h2 em { color: var(--accent); }
 .contact-card p { color: color-mix(in srgb, var(--bg) 72%, var(--fg)); margin-top: 10px; max-width: 48ch; }
+.email-list { display: grid; gap: 12px; justify-items: end; }
 .email-row { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; justify-content: flex-end; }
 .email { font: 500 17px var(--font-mono); user-select: all; color: var(--bg); text-decoration: none; word-break: break-all; }
 .copy {
@@ -197,6 +198,7 @@ section { padding-block: 88px; }
 @media (max-width: 760px) {
   .contact-card { grid-template-columns: 1fr; padding: 26px; }
   .email-row { justify-content: flex-start; }
+  .email-list { justify-items: start; }
 }
 
 footer { border-top: 1px solid var(--line); }
@@ -377,9 +379,15 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
           <h2>Where does your team's time <em>go?</em></h2>
           <p>Send a short note about the work you'd like off your plate. We'll reply within one business day to set up a call.</p>
         </div>
-        <div class="email-row">
-          <a class="email" id="email" href="mailto:joseph@occam-ai.com">joseph@occam-ai.com</a>
-          <button class="copy" id="copy-email" type="button">Copy</button>
+        <div class="email-list">
+          <div class="email-row">
+            <a class="email" href="mailto:joseph@occam-ai.com">joseph@occam-ai.com</a>
+            <button class="copy" type="button" data-copy="joseph@occam-ai.com" aria-label="Copy Joseph's email">Copy</button>
+          </div>
+          <div class="email-row">
+            <a class="email" href="mailto:mayer@occam-ai.com">mayer@occam-ai.com</a>
+            <button class="copy" type="button" data-copy="mayer@occam-ai.com" aria-label="Copy Mayer's email">Copy</button>
+          </div>
         </div>
       </div>
     </div>
@@ -397,22 +405,21 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
 (function () {
   var y = document.getElementById('year');
   if (y) y.textContent = new Date().getFullYear();
-  var btn = document.getElementById('copy-email');
-  var email = document.getElementById('email');
-  if (!btn || !email) return;
-  btn.addEventListener('click', function () {
-    var text = email.textContent.trim();
-    var done = function () { btn.textContent = 'Copied'; setTimeout(function () { btn.textContent = 'Copy'; }, 1600); };
-    var fallback = function () {
-      var r = document.createRange(); r.selectNodeContents(email);
-      var s = window.getSelection(); s.removeAllRanges(); s.addRange(r);
-      btn.textContent = 'Press Ctrl+C';
-    };
-    try {
-      if (navigator.clipboard && navigator.clipboard.writeText) {
-        navigator.clipboard.writeText(text).then(done, fallback);
-      } else { fallback(); }
-    } catch (e) { fallback(); }
+  document.querySelectorAll('.copy[data-copy]').forEach(function (btn) {
+    var email = btn.previousElementSibling;
+    btn.addEventListener('click', function () {
+      var text = btn.getAttribute('data-copy');
+      var done = function () { btn.textContent = 'Copied'; setTimeout(function () { btn.textContent = 'Copy'; }, 1600); };
+      var fallback = function () {
+        var r = document.createRange(); r.selectNodeContents(email);
+        var sel = window.getSelection(); sel.removeAllRanges(); sel.addRange(r);
+        btn.textContent = 'Press Ctrl+C';
+      };
+      try {
+        if (navigator.clipboard && navigator.clipboard.writeText) { navigator.clipboard.writeText(text).then(done, fallback); }
+        else { fallback(); }
+      } catch (e) { fallback(); }
+    });
   });
 })();
 </script>
