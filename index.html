@@ -9,6 +9,18 @@
 <meta property="og:description" content="Custom AI systems for small and mid-sized businesses: automations, integrations, and custom platforms.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://occam-ai.com/">
+<meta property="og:site_name" content="Occam AI">
+<meta property="og:image" content="https://occam-ai.com/brand/occam-og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Occam AI: the simplest system that does the job.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://occam-ai.com/brand/occam-og.png">
+<link rel="canonical" href="https://occam-ai.com/">
+<meta name="theme-color" content="#fbfcfe" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0c0f15" media="(prefers-color-scheme: dark)">
+<link rel="apple-touch-icon" href="/brand/occam-mark-dark-1024.png">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Occam AI","legalName":"Occam AI LLC","url":"https://occam-ai.com/","logo":"https://occam-ai.com/brand/occam-mark-dark-1024.png","email":"joseph@occam-ai.com","address":{"@type":"PostalAddress","addressRegion":"NY","addressCountry":"US"}}</script>
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27%3E%3Cpath d=%27M80 15 A47 47 0 0 0 15 80%27 fill=%27none%27 stroke=%27%23262626%27 stroke-width=%278%27 stroke-linecap=%27round%27/%3E%3Cline x1=%2788%27 y1=%2712%27 x2=%2712%27 y2=%2788%27 stroke=%27%230a5cff%27 stroke-width=%2710%27 stroke-linecap=%27round%27/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -26,6 +38,7 @@
   --ink: #262626;
   --accent-soft: #e4ecff;
   --grid-line: rgba(18, 22, 31, 0.085);
+  --step-bg: #12161f; --step-fg: #fbfcfe; --step-muted: #c3cad6; --step-n: #8fb1ff;
   --font-display: "Instrument Serif", Georgia, "Times New Roman", serif;
   --font-body: "Hanken Grotesk", system-ui, -apple-system, "Segoe UI", sans-serif;
   --font-mono: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, monospace;
@@ -38,12 +51,14 @@
     --bg: #0c0f15; --surface: #131822; --fg: #e8ecf3; --muted: #97a1b3;
     --line: #242c39; --accent: #4d86ff; --ink: #eef1f6; --accent-soft: #18223a;
     --grid-line: rgba(232, 236, 243, 0.075); color-scheme: dark;
+    --step-bg: #18223a; --step-fg: #f3f6fb; --step-muted: #b4bfd2; --step-n: #8fb1ff;
   }
 }
 :root[data-theme="dark"] {
   --bg: #0c0f15; --surface: #131822; --fg: #e8ecf3; --muted: #97a1b3;
   --line: #242c39; --accent: #4d86ff; --ink: #eef1f6; --accent-soft: #18223a;
   --grid-line: rgba(232, 236, 243, 0.075); color-scheme: dark;
+  --step-bg: #18223a; --step-fg: #f3f6fb; --step-muted: #b4bfd2; --step-n: #8fb1ff;
 }
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; scroll-padding-top: 76px; }
@@ -54,6 +69,9 @@ body {
   -webkit-font-smoothing: antialiased; overflow-x: clip;
 }
 a { color: inherit; }
+::selection { background: var(--accent); color: #fff; }
+.skip { position: absolute; left: 16px; top: -64px; z-index: 30; background: var(--fg); color: var(--bg); padding: 10px 16px; border-radius: 999px; font-weight: 600; font-size: 15px; text-decoration: none; transition: top .15s; }
+.skip:focus { top: 12px; }
 a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
 .wrap { max-width: var(--max); margin: 0 auto; padding-inline: 24px; }
 @media (max-width: 480px) { .wrap { padding-inline: 16px; } }
@@ -63,8 +81,9 @@ header.nav {
   position: sticky; top: 0; z-index: 20; padding-top: env(safe-area-inset-top, 0px);
   background: color-mix(in srgb, var(--bg) 86%, transparent);
   backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
-  border-bottom: 1px solid var(--line);
+  border-bottom: 1px solid transparent; transition: border-color .2s, background .2s;
 }
+header.nav.scrolled { border-bottom-color: var(--line); }
 .nav .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-block: 12px; }
 .wordmark { display: inline-flex; align-items: center; gap: 10px; font-family: var(--font-brand); font-weight: 600; font-size: 23px; letter-spacing: -0.01em; text-decoration: none; color: var(--ink); }
 .wordmark b { font-weight: 600; }
@@ -72,7 +91,11 @@ header.nav {
 .wordmark span { color: var(--accent); margin-left: -0.15em; }
 .nav nav { display: flex; align-items: center; gap: 28px; font-size: 15px; }
 .nav nav a { text-decoration: none; color: var(--muted); transition: color .15s; }
-.nav nav a:hover { color: var(--fg); }
+.nav nav a:hover, .nav nav a[aria-current] { color: var(--fg); }
+.nav nav a:not(.nav-cta) { position: relative; padding-block: 6px; }
+.nav nav a:not(.nav-cta)::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 1.5px; background: var(--accent); transform: scaleX(0); transform-origin: left; transition: transform .25s ease; }
+.nav nav a[aria-current]::after { transform: scaleX(1); }
+@media (prefers-reduced-motion: reduce) { .nav nav a:not(.nav-cta)::after, .skip, .btn .arrow, .cell::after, .flow li, .flow li::before { transition: none; } }
 .nav nav a.nav-cta {
   color: var(--bg); background: var(--fg); font-weight: 600; padding: 9px 16px; border-radius: 999px;
 }
@@ -102,6 +125,7 @@ section { padding-block: 104px; }
 }
 .btn-primary { background: #0a5cff; color: #fff; }
 .btn-primary:hover { background: #0047d6; }
+.btn:active { transform: translateY(1px); }
 .btn-ghost { border-color: var(--line); color: var(--fg); background: var(--bg); }
 .btn-ghost:hover { border-color: var(--muted); }
 .btn .arrow { transition: transform .15s; }
@@ -179,9 +203,9 @@ section { padding-block: 104px; }
 .flow .d { font-size: 15px; line-height: 1.45; color: var(--muted); transition: color .25s ease; }
 .flow .dot { width: 8px; height: 8px; background: var(--accent); opacity: 0; transition: opacity .25s ease; }
 .flow li::before { content: ""; position: absolute; left: 0; top: 50%; width: 14px; height: 1px; background: var(--accent); transform: scaleX(0); transform-origin: left; transition: transform .3s ease; }
-.flow li.on { background: var(--fg); color: var(--bg); }
-.flow li.on .d { color: color-mix(in srgb, var(--bg) 78%, var(--fg)); }
-.flow li.on .n { color: color-mix(in srgb, var(--accent) 55%, var(--bg)); }
+.flow li.on { background: var(--step-bg); color: var(--step-fg); }
+.flow li.on .d { color: var(--step-muted); }
+.flow li.on .n { color: var(--step-n); }
 .flow li.on .dot { opacity: 1; }
 .flow li.on::before { transform: scaleX(1); }
 @media (max-width: 900px) {
@@ -311,6 +335,7 @@ section { padding-block: 104px; }
 </style>
 </head>
 <body>
+<a class="skip" href="#top">Skip to content</a>
 
 <header class="nav">
   <div class="wrap">
@@ -503,7 +528,7 @@ section { padding-block: 104px; }
       <div class="cta reveal">
         <p class="eyebrow" style="color:var(--d-accent)">Book a 15-minute call</p>
         <h2>Where does your team&rsquo;s time <em>go?</em></h2>
-        <p>Free 15-minute call. No cost, no commitment. You&rsquo;ll talk to Joseph directly.</p>
+        <p>A free 15-minute call, with no commitment. You&rsquo;ll talk to Joseph directly.</p>
         <a class="btn btn-primary" href="https://calendar.google.com/calendar/appointments/schedules/AcZssZ1BsZFPQtZ1KyxTqXxMqfq23Ot45t5nYzURJD05WegzdyhnSSpEqZoWFcHmvjwesI8s2moPnXZu" target="_blank" rel="noopener">Pick a time <span class="arrow" aria-hidden="true">&rarr;</span></a>
         <div class="email-list">
           <div class="email-row">
@@ -570,6 +595,24 @@ section { padding-block: 104px; }
 
   var y = document.getElementById('year');
   if (y) y.textContent = new Date().getFullYear();
+
+  /* Nav: a hairline once the page has moved, and the section in view marked in the links. */
+  var navEl = document.querySelector('header.nav');
+  var links = Array.prototype.slice.call(document.querySelectorAll('.nav nav a[href^="#"]'));
+  var targets = links.map(function (a) { return document.querySelector(a.getAttribute('href')); });
+  function navState() {
+    if (navEl) navEl.classList.toggle('scrolled', window.scrollY > 8);
+    var line = window.innerHeight * 0.35, at = -1;
+    for (var i = 0; i < targets.length; i++) { if (targets[i] && targets[i].getBoundingClientRect().top <= line) at = i; }
+    // Past the last linked section (the closing call to action), nothing is marked.
+    var end = document.getElementById('contact');
+    if (end && end.getBoundingClientRect().top <= line) at = -1;
+    links.forEach(function (a, i) { if (i === at) a.setAttribute('aria-current', 'true'); else a.removeAttribute('aria-current'); });
+  }
+  var navTick = false;
+  window.addEventListener('scroll', function () { if (!navTick) { navTick = true; requestAnimationFrame(function () { navTick = false; navState(); }); } }, { passive: true });
+  window.addEventListener('resize', navState);
+  navState();
 
   /* Copy buttons */
   document.querySelectorAll('.copy[data-copy]').forEach(function (btn) {
