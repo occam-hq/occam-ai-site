@@ -1,0 +1,44 @@
+# Every push to main copies the site to S3 and clears the CloudFront cache.
+# The bucket, distribution and role are in occam-hq's infra/site.tf; these
+# repository variables come from `terraform output site_github_variables`:
+# AWS_REGION, AWS_DEPLOY_ROLE_ARN, SITE_BUCKET, SITE_DISTRIBUTION.
+name: Deploy
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+concurrency:
+  group: deploy
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+  id-token: write # OIDC to AWS
+
+jobs:
+  deploy:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: aws-actions/configure-aws-credentials@7474bc4690e29a8392af63c5b98e7449536d5c3a # v4
+        with:
+          role-to-assume: ${{ vars.AWS_DEPLOY_ROLE_ARN }}
+          aws-region: ${{ vars.AWS_REGION }}
+
+      - name: Upload
+        env:
+          BUCKET: s3://${{ vars.SITE_BUCKET }}
+        run: |
+          # CloudFront keeps everything until the next deploy clears it; browsers check the page every time, images daily.
+          aws s3 sync . "$BUCKET" --delete --exclude '*' --include 'brand/*' \
+            --cache-control 'public, max-age=86400, s-maxage=31536000'
+          aws s3 sync . "$BUCKET" --delete --exclude '*' --include '*.html' --exclude 'brand/*' \
+            --cache-control 'public, max-age=0, must-revalidate, s-maxage=31536000'
+
+      - name: Clear the cache
+        run: |
+          id=$(aws cloudfront create-invalidation --distribution-id "${{ vars.SITE_DISTRIBUTION }}" --paths '/*' --query Invalidation.Id --output text)
+          aws cloudfront wait invalidation-completed --distribution-id "${{ vars.SITE_DISTRIBUTION }}" --id "$id"
