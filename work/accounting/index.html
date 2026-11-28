@@ -4,9 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Tax returns for an accounting firm | Occam AI</title>
-<meta name="description" content="One platform that tracks each client's documents, reads them, drafts the return, and flags anything that doesn't match, so the firm's people spend their time on review.">
+<meta name="description" content="The firm wanted what every firm wants: client documents go in, and a return comes out ready for a partner to review. We're building it, with every number on the return traced back to the page it came from.">
 <meta property="og:title" content="Tax returns for an accounting firm | Occam AI">
-<meta property="og:description" content="One platform that tracks each client's documents, reads them, drafts the return, and flags anything that doesn't match, so the firm's people spend their time on review.">
+<meta property="og:description" content="The firm wanted what every firm wants: client documents go in, and a return comes out ready for a partner to review. We're building it, with every number on the return traced back to the page it came from.">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://occam-ai.com/work/accounting/">
 <meta property="og:site_name" content="Occam AI">
@@ -42,9 +42,9 @@
   <div class="wrap">
     <div class="page-head">
       <a class="crumb" href="/#work">&larr; Our work</a>
-      <div class="case-meta"><span class="tag">In progress</span><p class="eyebrow">Accounting firm</p></div>
-      <h1>From client documents to a return ready for review</h1>
-      <p class="lede">One platform that tracks each client&rsquo;s documents, reads them, drafts the return, and flags anything that doesn&rsquo;t match, so the firm&rsquo;s people spend their time on review.</p>
+      <div class="case-meta"><span class="tag">Prototype</span><p class="eyebrow">Accounting firm</p></div>
+      <h1>Documents in, a draft return out</h1>
+      <p class="lede">The firm wanted what every firm wants: client documents go in, and a return comes out ready for a partner to review. We&rsquo;re building it, with every number on the return traced back to the page it came from.</p>
     </div>
   </div>
 
@@ -53,11 +53,13 @@
       <article class="case reveal">
         <div class="case-info">
           <div class="sticky">
-            <p>Preparing a return means collecting documents, keying in figures, and checking the result against the paperwork. We are building one platform for the firm that tracks each client&rsquo;s documents, reads them, prepares the draft, and flags anything that doesn&rsquo;t match. A partner reviews and files every return.</p>
-            <p>Client data stays in an account the firm controls, and every action is recorded in an audit log.</p>
+            <p>Preparing a return means chasing the client for documents, keying in figures from W-2s, 1099s, and K-1s, and checking the result against the paperwork. The firm had tried the usual software and still ended up retyping. And speed sets the price: a firm that finishes a return in thirty minutes can undercut one that takes four hours.</p>
+            <p>The platform starts from last year&rsquo;s return to list the documents each client should send, and shows what&rsquo;s still missing. It reads every upload, splits a combined brokerage statement into one document per form, and records each figure with the page it came from. It catches duplicates, rescans, and forms made out to someone else. Bank statements become categorized transactions, with missing months, duplicates, and unusual items flagged.</p>
+            <p>From there it prepares the draft and checks it: amounts that don&rsquo;t match a source document, documents with nothing reported, and income in the wrong category. Code does all the arithmetic, never the AI. Every number links back to its source, and nothing is marked ready until a named reviewer and a partner sign off.</p>
             <dl class="case-facts">
-              <div><dt>Status</dt><dd>In progress</dd></div>
-              <div><dt>Runs in</dt><dd>An account the firm controls</dd></div>
+              <div><dt>Status</dt><dd>Working prototype</dd></div>
+              <div><dt>Reads</dt><dd>W-2s, 1099s, K-1s, brokerage and bank statements</dd></div>
+              <div><dt>Math</dt><dd>Done by code, never by AI, every figure traced to its page</dd></div>
               <div><dt>In charge</dt><dd>A partner approves and files every return</dd></div>
             </dl>
           </div>
@@ -67,31 +69,31 @@
           <div class="chrome"><i></i><i></i><i></i><span class="t">Returns &middot; R. Alvarez &middot; 2026</span><span class="r">Draft</span></div>
           <div class="panes">
             <div class="pane">
-              <div class="ph st"><b>Documents</b><span class="mono">3 of 5 received</span></div>
+              <div class="ph st"><b>Expected documents</b><span class="mono">from the 2025 return</span></div>
               <div class="track st" style="--i:1;--w:60%"><i></i></div>
               <div class="rows" style="--cols:16px minmax(0,1fr) auto">
                 <div class="row st" style="--i:2"><span class="ok">&#10003;</span><span class="v">W-2 <small>&middot; Brightline Health</small></span><span class="mono">Feb 3</span></div>
                 <div class="row st" style="--i:3"><span class="ok">&#10003;</span><span class="v">1099-INT <small>&middot; First Harbor Bank</small></span><span class="mono">Feb 9</span></div>
-                <div class="row st" style="--i:4"><span class="ok">&#10003;</span><span class="v">Brokerage statement <small>&middot; 1099-B</small></span><span class="mono">Feb 12</span></div>
-                <div class="row st" style="--i:5"><span class="ok o"></span><span class="v">1098 <small>&middot; mortgage interest</small></span><span class="chip a">Reminder sent</span></div>
-                <div class="row st" style="--i:6"><span class="ok o"></span><span class="v">K-1 <small>&middot; Alvarez Design LLC</small></span><span class="chip g">Missing</span></div>
+                <div class="row st" style="--i:4"><span class="ok">&#10003;</span><span class="v">Brokerage statement <small>&middot; 4 forms inside</small></span><span class="mono">Feb 12</span></div>
+                <div class="row st" style="--i:5"><span class="ok o"></span><span class="v">1098 <small>&middot; mortgage interest</small></span><span class="chip a">Missing</span></div>
+                <div class="row st" style="--i:6"><span class="ok o"></span><span class="v">K-1 <small>&middot; Alvarez Design LLC</small></span><span class="chip a">Missing</span></div>
               </div>
             </div>
             <div class="pane">
-              <div class="ph st"><b>W-2 &middot; Brightline Health</b><span class="chip b">14 fields read</span></div>
+              <div class="ph st"><b>Brokerage statement</b><span class="chip b">Split into 4 forms</span></div>
               <div class="read">
                 <div class="doc st" style="--i:1"><span class="h"></span><span style="--w:70%"></span><span style="--w:90%"></span><span></span><span style="--w:45%"></span><span style="--w:80%"></span><span style="--w:62%"></span><span></span><span style="--w:76%"></span><span style="--w:54%"></span><span style="--w:88%"></span><span style="--w:40%"></span><span style="--w:72%"></span><i class="scan"></i></div>
-                <div class="rows" style="--cols:minmax(0,1fr) auto">
-                  <div class="row st fl" style="--i:2"><span class="k">Box 1 &middot; Wages</span><span class="v">$84,210.00</span></div>
-                  <div class="row st fl" style="--i:3"><span class="k">Box 2 &middot; Federal tax withheld</span><span class="v">$11,846.00</span></div>
-                  <div class="row st fl" style="--i:4"><span class="k">Box 12a &middot; 401(k)</span><span class="v">$9,500.00</span></div>
-                  <div class="row st fl" style="--i:5"><span class="k">Box 16 &middot; State wages</span><span class="v">$84,210.00</span></div>
-                  <div class="row st fl" style="--i:6"><span class="k">Box 17 &middot; State tax</span><span class="v">$4,512.00</span></div>
+                <div class="rows" style="--cols:minmax(0,1fr) auto auto">
+                  <div class="row st fl" style="--i:2"><span class="k">1099-DIV &middot; ordinary dividends</span><span class="v">$2,118.40</span><span class="mono">p. 3</span></div>
+                  <div class="row st fl" style="--i:3"><span class="k">1099-INT &middot; interest</span><span class="v">$212.06</span><span class="mono">p. 5</span></div>
+                  <div class="row st fl" style="--i:4"><span class="k">1099-B &middot; short-term gain</span><span class="v">$1,402.55</span><span class="mono">p. 7</span></div>
+                  <div class="row st fl" style="--i:5"><span class="k">1099-B &middot; long-term gain</span><span class="v">$2,502.70</span><span class="mono">p. 9</span></div>
+                  <div class="row st fl" style="--i:6"><span class="k">Account number</span><span class="v">&bull;&bull;&bull;&bull; 4471</span><span class="mono">masked</span></div>
                 </div>
               </div>
             </div>
             <div class="pane">
-              <div class="ph st"><b>Bank transactions</b><span class="mono">1,284 categorized</span></div>
+              <div class="ph st"><b>Bank statements</b><span class="mono">12 months &middot; 1,284 transactions</span></div>
               <div class="rows" style="--cols:96px minmax(0,1fr) 42px">
                 <div class="row st" style="--i:1"><span class="k">Payroll</span><span class="track" style="--w:88%"><i></i></span><span class="mono">412</span></div>
                 <div class="row st" style="--i:2"><span class="k">Rent</span><span class="track" style="--w:30%"><i></i></span><span class="mono">24</span></div>
@@ -99,50 +101,51 @@
                 <div class="row st" style="--i:4"><span class="k">Travel</span><span class="track" style="--w:40%"><i></i></span><span class="mono">97</span></div>
                 <div class="row st" style="--i:5"><span class="k">Meals</span><span class="track" style="--w:64%"><i></i></span><span class="mono">235</span></div>
               </div>
-              <div class="chips st" style="--i:7"><span class="chip a">2 possible duplicates</span><span class="chip a">No August statement</span><span class="chip g">Software +38% on 2025</span></div>
+              <div class="chips st" style="--i:7"><span class="chip a">August statement missing</span><span class="chip a">2 possible duplicates</span><span class="chip a">$3,180 equipment</span></div>
             </div>
             <div class="pane">
-              <div class="ph st"><b>Form 1040 &middot; draft</b><span class="mono">from 3 documents and the books</span></div>
-              <div class="rows" style="--cols:minmax(0,1fr) auto">
-                <div class="row st" style="--i:1"><span class="k">Wages</span><span class="v" data-to="84210">84,210</span></div>
-                <div class="row st" style="--i:2"><span class="k">Taxable interest</span><span class="v" data-to="642">642</span></div>
-                <div class="row st" style="--i:3"><span class="k">Capital gains</span><span class="v" data-to="3905">3,905</span></div>
-                <div class="row st" style="--i:4"><span class="k">Business income &middot; Schedule C</span><span class="v" data-to="41370">41,370</span></div>
-                <div class="row st fl" style="--i:6"><span class="v">Total income</span><span class="v" data-to="130127">130,127</span></div>
+              <div class="ph st"><b>Form 1040 &middot; draft</b><span class="mono">every line linked to its source</span></div>
+              <div class="rows" style="--cols:minmax(0,1fr) auto auto">
+                <div class="row st" style="--i:1"><span class="k">Wages</span><span class="v" data-to="84210">84,210</span><span class="mono">W-2</span></div>
+                <div class="row st" style="--i:2"><span class="k">Taxable interest</span><span class="v" data-to="642">642</span><span class="mono">2 forms</span></div>
+                <div class="row st" style="--i:3"><span class="k">Capital gains</span><span class="v" data-to="3905">3,905</span><span class="mono">1099-B</span></div>
+                <div class="row st" style="--i:4"><span class="k">Business income &middot; Schedule C</span><span class="v" data-to="41370">41,370</span><span class="mono">books</span></div>
+                <div class="row st fl" style="--i:6"><span class="v">Total income</span><span class="v" data-to="130127">130,127</span><span class="mono">sum</span></div>
               </div>
             </div>
             <div class="pane">
-              <div class="ph st"><b>Checks</b><span class="chip a">3 flags</span></div>
+              <div class="ph st"><b>Checks</b><span class="chip a">3 to review</span></div>
               <div class="rows multi" style="--cols:16px minmax(0,1fr)">
-                <div class="row st" style="--i:1"><span class="ok a">!</span><span class="v">Interest is $642 on the draft, $662 on the 1099-INT <small>&middot; First Harbor Bank 1099-INT</small></span></div>
-                <div class="row st" style="--i:2"><span class="ok a">!</span><span class="v">K-1 not received yet <small>&middot; Alvarez Design LLC</small></span></div>
-                <div class="row st" style="--i:3"><span class="ok a">!</span><span class="v">$1,240 &ldquo;Equipment&rdquo; may need depreciating <small>&middot; bank, Mar 14</small></span></div>
+                <div class="row st" style="--i:1"><span class="ok a">!</span><span class="v">Interest is $642 on the draft and $662 across the 1099s <small>&middot; First Harbor Bank 1099-INT, p. 1</small></span></div>
+                <div class="row st" style="--i:2"><span class="ok a">!</span><span class="v">K-1 from Alvarez Design LLC was on last year&rsquo;s return and hasn&rsquo;t arrived</span></div>
+                <div class="row st" style="--i:3"><span class="ok a">!</span><span class="v">$3,180 &ldquo;equipment&rdquo; may need depreciating <small>&middot; bank, Mar 14</small></span></div>
                 <div class="row st" style="--i:4"><span class="ok">&#10003;</span><span>Wages and withholding match the W-2</span></div>
-                <div class="row st" style="--i:5"><span class="ok">&#10003;</span><span>Capital gains match the 1099-B</span></div>
+                <div class="row st" style="--i:5"><span class="ok">&#10003;</span><span>Gains match the 1099-B, short and long term</span></div>
               </div>
             </div>
             <div class="pane">
-              <div class="ph st"><b>Review</b><span class="mono">R. Alvarez &middot; 2026</span></div>
+              <div class="ph st"><b>Sign-off</b><span class="mono">R. Alvarez &middot; 2026</span></div>
               <div class="tl">
                 <div class="st" style="--i:1"><span class="mono">Feb 18</span><b>Draft prepared</b><span class="ok">&#10003;</span></div>
-                <div class="st" style="--i:2"><span class="mono">Feb 19</span><b>Flags resolved, 3 of 3</b><span class="ok">&#10003;</span></div>
+                <div class="st" style="--i:2"><span class="mono">Feb 19</span><b>Checks resolved, 3 of 3</b><span class="ok">&#10003;</span></div>
                 <div class="st" style="--i:3"><span class="mono">Feb 19</span><b>Reviewed by J. Park</b><span class="ok">&#10003;</span></div>
                 <div class="st" style="--i:4"><span class="mono">Feb 20</span><b>Approved by S. Klein, partner</b><span class="ok">&#10003;</span></div>
               </div>
-              <div class="ph st" style="--i:6;justify-content:flex-end;gap:8px"><span class="mono">Only a partner can submit</span><span class="btnx p">Submit return</span></div>
+              <div class="ph st" style="--i:6;justify-content:flex-end;gap:8px"><span class="mono">Only a partner can file</span><span class="btnx p">File return</span></div>
             </div>
           </div>
         </div>
-        <ol class="flow" aria-label="How the accounting platform works">
-          <li><span class="n">01</span><strong>Track the documents</strong><span class="d">Lists what each client is expected to send and shows what is still missing</span><span class="dot" aria-hidden="true"></span></li>
-          <li><span class="n">02</span><strong>Read the uploads</strong><span class="d">Reads W-2s, 1099s, K-1s, and bank and brokerage statements, and pulls out the figures</span><span class="dot" aria-hidden="true"></span></li>
-          <li><span class="n">03</span><strong>Analyze the books</strong><span class="d">Categorizes every bank transaction, flags duplicates and gaps, and compares the year against prior years</span><span class="dot" aria-hidden="true"></span></li>
-          <li><span class="n">04</span><strong>Draft the return</strong><span class="d">Prepares a draft return from the documents and the books</span><span class="dot" aria-hidden="true"></span></li>
-          <li><span class="n">05</span><strong>Check the draft</strong><span class="d">Flags amounts that don&rsquo;t match a source document, items that are missing, and likely misclassifications, and names the document behind each flag</span><span class="dot" aria-hidden="true"></span></li>
-          <li><span class="n">06</span><strong>Partner sign-off</strong><span class="d">Staff review the draft, a partner approves it, and a partner always presses submit</span><span class="dot" aria-hidden="true"></span></li>
+        <ol class="flow" aria-label="How the tax return platform works">
+          <li><span class="n">01</span><strong>Know what&rsquo;s coming</strong><span class="d">Lists the documents each client should send, built from last year&rsquo;s return, and shows what&rsquo;s missing</span><span class="dot" aria-hidden="true"></span></li>
+          <li><span class="n">02</span><strong>Read the uploads</strong><span class="d">Splits combined statements into one document per form and records every figure with its page</span><span class="dot" aria-hidden="true"></span></li>
+          <li><span class="n">03</span><strong>Sort the bank statements</strong><span class="d">Categorizes every transaction and flags missing months, duplicates, and unusual items</span><span class="dot" aria-hidden="true"></span></li>
+          <li><span class="n">04</span><strong>Draft the return</strong><span class="d">Prepares the draft from the documents and the books, with code doing all the math</span><span class="dot" aria-hidden="true"></span></li>
+          <li><span class="n">05</span><strong>Check the draft</strong><span class="d">Flags amounts that don&rsquo;t match, documents that never arrived, and income in the wrong category, citing the source of each</span><span class="dot" aria-hidden="true"></span></li>
+          <li><span class="n">06</span><strong>Partner sign-off</strong><span class="d">A named reviewer checks the draft, and a partner approves it and files it</span><span class="dot" aria-hidden="true"></span></li>
         </ol>
         </div>
       </article>
+      <p class="shot-note">The screen is an illustration, with made-up names and figures.</p>
     </div>
   </section>
 
@@ -153,22 +156,22 @@
         <a class="proj" href="/work/occam-hq/">
           <div class="proj-top"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v14H4z"/><path d="M4 9h16M9 9v10"/></svg><span class="tag live">In daily use</span></div>
           <p class="eyebrow">Our own platform</p>
-          <h3>Occam HQ, the system we run Occam&nbsp;AI&nbsp;on</h3>
-          <p>Every client, meeting, document, email, invoice, and payment in one place, with an assistant that does the work.</p>
+          <h3>Occam HQ, the system that runs our company</h3>
+          <p>Clients, projects, meetings, email, documents, billing, and the books in one place, with an AI assistant that works across all of it.</p>
           <span class="more">Read more <span class="arrow" aria-hidden="true">&rarr;</span></span>
         </a>
         <a class="proj" href="/work/home-care/">
-          <div class="proj-top"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/></svg><span class="tag live">Built</span></div>
+          <div class="proj-top"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/></svg><span class="tag live">Live</span></div>
           <p class="eyebrow">Home care agency</p>
-          <h3>Case acceptance, around the clock</h3>
-          <p>Reads every new case posted to the care portals and accepts or declines it by the agency&rsquo;s own rules, within seconds.</p>
+          <h3>Case acceptance in seconds</h3>
+          <p>Reads every new case on the referral portal and accepts or declines it by the agency&rsquo;s rules, seconds after it&rsquo;s posted.</p>
           <span class="more">Read more <span class="arrow" aria-hidden="true">&rarr;</span></span>
         </a>
         <a class="proj" href="/work/real-estate/">
-          <div class="proj-top"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 21V5l8-2v18M12 8l8 2v11M2 21h20M7.5 8h1M7.5 12h1M7.5 16h1M15.5 13h1M15.5 17h1"/></svg><span class="tag">In progress</span></div>
+          <div class="proj-top"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 21V5l8-2v18M12 8l8 2v11M2 21h20M7.5 8h1M7.5 12h1M7.5 16h1M15.5 13h1M15.5 17h1"/></svg><span class="tag">Launching</span></div>
           <p class="eyebrow">Real estate brokerage</p>
-          <h3>Every new deal, to the buyers it fits</h3>
-          <p>Reads each new deal, ranks the investors it fits, and tracks every reply, with a broker approving each email.</p>
+          <h3>Every deal, to the buyers it fits</h3>
+          <p>Matches each new deal against 1,200 investors&rsquo; criteria, writes each a personal email for approval, and follows up until they answer.</p>
           <span class="more">Read more <span class="arrow" aria-hidden="true">&rarr;</span></span>
         </a>
       </div>

@@ -92,13 +92,6 @@
     show(0);
   });
 
-  /* Screens that play once when they come into view (the Occam HQ preview). */
-  document.querySelectorAll('.pane.play').forEach(function (p) {
-    if (!('IntersectionObserver' in window) || reduce) { p.classList.add('on'); return; }
-    var o = new IntersectionObserver(function (es) { if (es[0].isIntersecting) { p.classList.add('on'); o.disconnect(); } }, { threshold: 0.3 });
-    o.observe(p);
-  });
-
   /* Service drawings stand still when motion is reduced. */
   if (reduce) document.querySelectorAll('svg.viz').forEach(function (sv) { if (sv.pauseAnimations) sv.pauseAnimations(); });
 
