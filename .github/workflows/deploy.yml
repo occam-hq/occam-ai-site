@@ -32,10 +32,10 @@ jobs:
         env:
           BUCKET: s3://${{ vars.SITE_BUCKET }}
         run: |
-          # CloudFront keeps everything until the next deploy clears it; browsers check the page every time, images daily.
+          # CloudFront keeps everything until the next deploy clears it; browsers check pages, styles and scripts every time, images daily.
           aws s3 sync . "$BUCKET" --delete --exclude '*' --include 'brand/*' \
             --cache-control 'public, max-age=86400, s-maxage=31536000'
-          aws s3 sync . "$BUCKET" --delete --exclude '*' --include '*.html' --exclude 'brand/*' \
+          aws s3 sync . "$BUCKET" --delete --exclude '*' --include '*.html' --include '*.css' --include '*.js' --exclude 'brand/*' \
             --cache-control 'public, max-age=0, must-revalidate, s-maxage=31536000'
 
       - name: Clear the cache
