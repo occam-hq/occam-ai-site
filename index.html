@@ -70,14 +70,14 @@
       <div class="services reveal">
         <div class="service">
           <svg class="viz" viewBox="0 0 280 120" aria-hidden="true">
-            <text x="28" y="22" text-anchor="middle">IN</text><text x="102" y="22" text-anchor="middle">READ</text><text x="178" y="22" text-anchor="middle">DECIDE</text><text x="252" y="22" text-anchor="middle">DONE</text>
-            <path class="wire" d="M28 46 H252"/><path class="wire d" d="M178 46 V94 H236"/>
-            <circle class="node" cx="28" cy="46" r="8"/><circle class="node" cx="102" cy="46" r="8"/><circle class="node" cx="178" cy="46" r="8"/><circle class="node b" cx="252" cy="46" r="9"/>
-            <circle class="node a" cx="246" cy="94" r="10"/><circle class="filla" cx="246" cy="91" r="2.6"/><path class="filla" d="M241 99.5a5 4 0 0 1 10 0z"/>
-            <text x="207" y="112" text-anchor="middle">PERSON</text>
-            <circle class="fillb" r="3.5"><animateMotion dur="3s" repeatCount="indefinite" path="M28 46 H252"/></circle>
-            <circle class="fillb" r="3.5"><animateMotion dur="3s" begin="1.5s" repeatCount="indefinite" path="M28 46 H252"/></circle>
-            <circle class="filla" r="3.5" opacity="0"><animateMotion dur="9s" begin="2.2s" repeatCount="indefinite" path="M28 46 H178 V94 H236" keyPoints="0;1;1" keyTimes="0;.42;1" calcMode="linear"/><animate attributeName="opacity" dur="9s" begin="2.2s" repeatCount="indefinite" values="1;1;0;0" keyTimes="0;.42;.5;1"/></circle>
+            <text x="28" y="22" text-anchor="middle">IN</text><text x="103" y="22" text-anchor="middle">READ</text><text x="178" y="22" text-anchor="middle">DECIDE</text><text x="253" y="22" text-anchor="middle">DONE</text>
+            <path class="wire" d="M28 46 H253"/><path class="wire d" d="M178 54 V92 H243"/>
+            <circle class="node" cx="28" cy="46" r="8"/><circle class="node" cx="103" cy="46" r="8"/><circle class="node" cx="178" cy="46" r="8"/><circle class="node b" cx="253" cy="46" r="8"/>
+            <circle class="node a" cx="253" cy="92" r="10"/><circle class="filla" cx="253" cy="89" r="2.6"/><path class="filla" d="M248 97.5a5 4 0 0 1 10 0z"/>
+            <text x="253" y="117" text-anchor="middle">PERSON</text>
+            <circle class="fillb" r="3.5"><animateMotion dur="3s" repeatCount="indefinite" path="M28 46 H253"/></circle>
+            <circle class="fillb" r="3.5" opacity="0"><set attributeName="opacity" to="1" begin="1.5s"/><animateMotion dur="3s" begin="1.5s" repeatCount="indefinite" path="M28 46 H253"/></circle>
+            <circle class="filla" r="3.5" opacity="0"><animateMotion dur="9s" begin="2.2s" repeatCount="indefinite" path="M28 46 H178 V92 H243" keyPoints="0;1;1" keyTimes="0;.42;1" calcMode="linear"/><animate attributeName="opacity" dur="9s" begin="2.2s" repeatCount="indefinite" values="1;1;0;0" keyTimes="0;.42;.5;1"/></circle>
           </svg>
           <p class="label">Automations</p>
           <h3>Work that runs itself</h3>
@@ -93,9 +93,9 @@
             <circle class="node b" cx="140" cy="60" r="20"/>
             <g transform="translate(130 50) scale(.2)"><path d="M80 15 A47 47 0 0 0 15 80" fill="none" stroke="var(--ink)" stroke-width="8" stroke-linecap="round"/><line x1="88" y1="12" x2="12" y2="88" stroke="var(--accent)" stroke-width="10" stroke-linecap="round"/></g>
             <circle class="fillb" r="3"><animateMotion dur="2.4s" repeatCount="indefinite" path="M80 27 C104 27 104 60 120 60"/></circle>
-            <circle class="fillb" r="3"><animateMotion dur="2.4s" begin=".6s" repeatCount="indefinite" path="M160 60 C176 60 176 27 200 27"/></circle>
-            <circle class="fillb" r="3"><animateMotion dur="2.4s" begin="1.2s" repeatCount="indefinite" path="M80 93 C104 93 104 60 120 60"/></circle>
-            <circle class="fillb" r="3"><animateMotion dur="2.4s" begin="1.8s" repeatCount="indefinite" path="M160 60 C176 60 176 93 200 93"/></circle>
+            <circle class="fillb" r="3" opacity="0"><set attributeName="opacity" to="1" begin=".6s"/><animateMotion dur="2.4s" begin=".6s" repeatCount="indefinite" path="M160 60 C176 60 176 27 200 27"/></circle>
+            <circle class="fillb" r="3" opacity="0"><set attributeName="opacity" to="1" begin="1.2s"/><animateMotion dur="2.4s" begin="1.2s" repeatCount="indefinite" path="M80 93 C104 93 104 60 120 60"/></circle>
+            <circle class="fillb" r="3" opacity="0"><set attributeName="opacity" to="1" begin="1.8s"/><animateMotion dur="2.4s" begin="1.8s" repeatCount="indefinite" path="M160 60 C176 60 176 93 200 93"/></circle>
           </svg>
           <p class="label">Integrations</p>
           <h3>Every part, connected</h3>
